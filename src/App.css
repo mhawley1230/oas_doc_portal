@@ -1,0 +1,26 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.side-bar {
+  width: 15vw;
+  background-color: floralwhite;
+}
+
+.side-bar-header {
+  background-color: lightcoral;
+  padding: 10px;
+}
+
+.side-bar-body {
+  padding-left: 10px;
+}
+
+#api-data {
+  width: 90vw;
+  padding-left: 30px;
+  padding-top: 30px;
+  overflow-y: scroll;
+}
