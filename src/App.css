@@ -5,13 +5,26 @@
 }
 
 .side-bar {
+  display: flex;
+  flex-direction: column;
   width: 15vw;
-  background-color: floralwhite;
+  height: 100vh;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .side-bar-header {
-  background-color: lightcoral;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
+  color: whitesmoke;
+  background-color: #2d383a;
+  border-bottom: 5px solid crimson;
+}
+
+.side-bar-header h1 {
+  margin: 0;
+  font-size: 36pt;
 }
 
 .side-bar-body {
@@ -22,5 +35,5 @@
   width: 90vw;
   padding-left: 30px;
   padding-top: 30px;
-  overflow-y: scroll;
+  overflow-y: scroll
 }

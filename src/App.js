@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import SwaggerUI from 'swagger-ui';
 import Config from './organization_config.json';
 import Sidebar from './Sidebar.js';
+import '../node_modules/swagger-ui/dist/swagger-ui.css'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      organizationConfig: Config.orgData,
-      definitionList: null,
-      definitionLink: "https://petstore.swagger.io/v2/swagger.json"
+        organizationConfig: null,
+        definitionList: null,
+        definitionLink: "https://petstore.swagger.io/v2/swagger.json"
+      }
+      this.swaggerhub = this.swaggerhub.bind(this)
+      this.getOrganizationData = this.getOrganizationData.bind(this)
+      this.updateDefinitionLink = this.updateDefinitionLink.bind(this)
     }
-    this.swaggerhub = this.swaggerhub.bind(this)
-    this.getOrganizationData = this.getOrganizationData.bind(this)
-  }
+    
 
   swaggerhub(inputMethod, inputResource, inputParams) {
     let url = ""
@@ -59,13 +62,20 @@ class App extends Component {
     })
   }
 
+  updateDefinitionLink(newLink) {
+    this.setState({
+      definitionLink: newLink
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <Sidebar
+        <Sidebar 
           organizationConfig={this.state.organizationConfig}
           definitionList={this.state.definitionList}
-          getOrganizationData={this.state.getOrganizationData}
+          updateDefinitionLink={this.updateDefinitionLink}
+          getOrganizationData={this.getOrganizationData}
         />
         <div id="api-data" />
       </div>
